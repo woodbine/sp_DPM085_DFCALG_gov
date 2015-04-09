@@ -43,6 +43,8 @@ for block in blocks:
 		fileUrl = fileUrl.replace(".csv/preview",".csv")
 		
 		title = fileBlock.h2.contents[0]
+		title = title.replace("(.csv format)","")
+		
 		titleTest = title.find('Download CSV')
 		titleTest2 = title.find('DCLG expenditure')
 		
