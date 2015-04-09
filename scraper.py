@@ -28,7 +28,7 @@ blocks = soup.findAll('li', {'class':'publication document-row'})
 for block in blocks:
 
 	link = block.a['href']
-
+	
 	# add the right prefix onto the url
 	pageUrl = link.replace("/government","http://www.gov.uk/government")
 	
@@ -43,6 +43,7 @@ for block in blocks:
 		fileUrl = fileUrl.replace(".csv/preview",".csv")
 		
 		title = fileBlock.h2.contents[0]
+		title = title.replace("(.csv format)","")
 		spendFileTest = title.find('DCLG expenditure')
 		
 		if spendFileTest == None:
