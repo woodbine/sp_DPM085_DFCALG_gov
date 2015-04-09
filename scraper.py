@@ -43,7 +43,6 @@ for block in blocks:
 		fileUrl = fileUrl.replace(".csv/preview",".csv")
 		
 		title = fileBlock.h2.contents[0]
-		print title
 		titleTest = title.find('£250')
 		print titleTest
 		
