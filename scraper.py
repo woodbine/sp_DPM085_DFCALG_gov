@@ -43,7 +43,7 @@ for block in blocks:
 		fileUrl = fileUrl.replace(".csv/preview",".csv")
 		
 		title = fileBlock.h2.contents[0]
-		titleTest = title.find('£250')
+		titleTest = title.find('DCLG expenditure')
 		print titleTest
 		
 		if titleTest == None:
