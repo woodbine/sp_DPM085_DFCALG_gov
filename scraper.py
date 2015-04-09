@@ -48,11 +48,11 @@ for block in blocks:
 		titleTest = title.find('Download CSV')
 		titleTest2 = title.find('DCLG expenditure')
 		
-		if titleTest == None:
-			print 'not a csv'
+		if titleTest2 == None:
+			print 'not a spend file'
 		else:
-			if titleTest2 == None:
-				print 'not a spend file'
+			if titleTest == None:
+				print 'not a csv'
 			else:
 				# create the right strings for the new filename
 				title = title.upper().strip()
