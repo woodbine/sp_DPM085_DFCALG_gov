@@ -69,3 +69,4 @@ for block in blocks:
 				scraperwiki.sqlite.save(unique_keys=['l'], data={"l": fileUrl, "f": filename, "d": todays_date })
 			
 				print filename
+				print fileUrl
