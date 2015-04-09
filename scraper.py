@@ -6,8 +6,8 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 
 # Set up variables
-entity_id = "DOH033_DOH_gov"
-url = "https://www.gov.uk/government/collections/spending-over-25-000"
+entity_id = "DPM085_DFCALG_gov"
+url = "https://www.gov.uk/government/collections/dclg-spending-over-250"
 
 # Set up functions
 def convert_mth_strings ( mth_string ):
@@ -43,10 +43,10 @@ for block in blocks:
 		fileUrl = fileUrl.replace(".csv/preview",".csv")
 		
 		title = fileBlock.h2.contents[0]
-		titleTest = title.find('Download CSV')
+		titleTest = title.find('£250')
 		
 		if titleTest == None:
-			print 'not a csv'
+			print 'not a spend file'
 		else:
 			# create the right strings for the new filename
 			title = title.upper().strip()
