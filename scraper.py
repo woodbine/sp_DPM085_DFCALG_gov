@@ -42,11 +42,8 @@ for block in blocks:
 		fileUrl = fileUrl.replace("/government","http://www.gov.uk/government")
 		fileUrl = fileUrl.replace(".csv/preview",".csv")
 		
-		title = fileBlock.h2.contents[0]
-		if title:
-        		print title.text
-        		print
-        		results.append(title)
+		title = fileBlock.h2.getText()
+		print title
 		
 		'''
 		title = title.replace("(.csv format)","")
