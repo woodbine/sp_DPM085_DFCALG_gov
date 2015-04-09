@@ -43,20 +43,13 @@ for block in blocks:
 		fileUrl = fileUrl.replace(".csv/preview",".csv")
 		
 		title = fileBlock.h2.contents[0]
-		#  title = title.getText()
-		print title
-		
-		'''
-		
 		titleTest = title.find('Download CSV')
-		titleTest2 = title.find('DCLG expenditure')
 		
-		if titleTest2 == None:
-			print 'not a spend file'
+		
+		if titleTest == None:
+			print 'not a csv file'
 		else:
-			if titleTest == None:
-				print 'not a csv'
-			else:
+			if(title.contains("DCLG expenditure")):
 				# create the right strings for the new filename
 				title = title.upper().strip()
 				csvYr = title.split(' ')[-1]
@@ -73,4 +66,3 @@ for block in blocks:
 			
 				print filename
 				print fileUrl
-		'''
