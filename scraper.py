@@ -44,9 +44,8 @@ for block in blocks:
 		
 		title = fileBlock.h2.contents[0]
 		print title
-		
-		'''
 		titleTest = title.find('£250')
+		print titleTest
 		
 		if titleTest == None:
 			print 'not a spend file'
@@ -66,4 +65,3 @@ for block in blocks:
 			scraperwiki.sqlite.save(unique_keys=['l'], data={"l": fileUrl, "f": filename, "d": todays_date })
 			
 			print filename
-		'''
