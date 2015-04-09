@@ -43,26 +43,24 @@ for block in blocks:
 		fileUrl = fileUrl.replace(".csv/preview",".csv")
 		
 		title = fileBlock.h2.contents[0]
-		titleTest = title.find('Download CSV')
+		spendFileTest = title.find('DCLG expenditure','Department for Communities and Local Government expenditure')
 		
-		
-		if titleTest == None:
-			print 'not a csv file'
+		if spendFileTest == None:
+			print 'not a valid spend file'
 		else:
-			if(title.contains("DCLG expenditure")):
-				# create the right strings for the new filename
-				title = title.upper().strip()
-				csvYr = title.split(' ')[-1]
-				csvYr = csvYr.replace("200","20")
+			# create the right strings for the new filename
+			title = title.upper().strip()
+			csvYr = title.split(' ')[-1]
+			csvYr = csvYr.replace("200","20")
 			
-				csvMth = title.split(' ')[-2][:3]
-				csvMth = convert_mth_strings(csvMth);
+			csvMth = title.split(' ')[-2][:3]
+			csvMth = convert_mth_strings(csvMth);
 		
-				filename = entity_id + "_" + csvYr + "_" + csvMth
+			filename = entity_id + "_" + csvYr + "_" + csvMth
 				
-				todays_date = str(datetime.now())
+			todays_date = str(datetime.now())
 		
-				scraperwiki.sqlite.save(unique_keys=['l'], data={"l": fileUrl, "f": filename, "d": todays_date })
+			scraperwiki.sqlite.save(unique_keys=['l'], data={"l": fileUrl, "f": filename, "d": todays_date })
 			
-				print filename
-				print fileUrl
+			print filename
+			print fileUrl
