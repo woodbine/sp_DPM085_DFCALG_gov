@@ -43,6 +43,9 @@ for block in blocks:
 		fileUrl = fileUrl.replace(".csv/preview",".csv")
 		
 		title = fileBlock.h2.contents[0]
+		print title
+		
+		'''
 		titleTest = title.find('£250')
 		
 		if titleTest == None:
@@ -63,3 +66,4 @@ for block in blocks:
 			scraperwiki.sqlite.save(unique_keys=['l'], data={"l": fileUrl, "f": filename, "d": todays_date })
 			
 			print filename
+		'''
