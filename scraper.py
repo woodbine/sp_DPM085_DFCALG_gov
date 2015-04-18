@@ -40,7 +40,7 @@ for block in blocks:
 		
 		for fileBlock in fileBlocks:
 			fileUrl = fileBlock.a['href']
-			if '.csv' in fileUrl and 'GPC' not in fileUrl and 'rocurement' not in title:
+			if '.csv' in fileUrl and 'GPC' not in fileUrl and 'rocurement' not in fileUrl:
 				fileUrl = fileUrl.replace("/government","http://www.gov.uk/government")
 				fileUrl = fileUrl.replace(".csv/preview",".csv")
 				title = fileBlock.h2.getText()
