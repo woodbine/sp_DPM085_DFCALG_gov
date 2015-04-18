@@ -47,7 +47,7 @@ for block in blocks:
 				title = title.replace("(.csv format)","") #  get rid of suffix
 				# create the right strings for the new filename
 				title = title.upper().strip()
-				if 'GPC' not in title: # ignore the GPC files
+				if 'GPC' not in title or 'CARD' not in title or 'PROCUREMENT' not in title: # ignore the GPC files
 					csvYr = title.split(' ')[-1]
 					csvMth = title.split(' ')[-2][:3]
 					csvMth = convert_mth_strings(csvMth);
