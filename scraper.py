@@ -45,7 +45,7 @@ for block in blocks:
 		title = fileBlock.h2.getText()
 		title = title.replace("(.csv format)","")
 		
-		if title.contains('DCLG'):
+		if 'DCLG' in title:
 			print 'found DCLG'
 		else:
 			# create the right strings for the new filename
