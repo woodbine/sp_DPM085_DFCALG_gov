@@ -40,19 +40,17 @@ for block in blocks:
 		
 		for fileBlock in fileBlocks:
 			fileUrl = fileBlock.a['href']
-			if '.csv' in fileUrl:
+			if '.csv' in fileUrl and 'GPC' not in fileUrl and 'rocurement' not in title:
 				fileUrl = fileUrl.replace("/government","http://www.gov.uk/government")
 				fileUrl = fileUrl.replace(".csv/preview",".csv")
 				title = fileBlock.h2.getText()
 				title = title.replace("(.csv format)","") #  get rid of suffix
 				# create the right strings for the new filename
 				title = title.upper().strip()
-				if 'GPC' not in title or 'CARD' not in title or 'PROCUREMENT' not in title: # ignore the GPC files
-					csvYr = title.split(' ')[-1]
-					csvMth = title.split(' ')[-2][:3]
-					csvMth = convert_mth_strings(csvMth);
-					filename = entity_id + "_" + csvYr + "_" + csvMth
-					todays_date = str(datetime.now())
-					scraperwiki.sqlite.save(unique_keys=['l'], data={"l": fileUrl, "f": filename, "d": todays_date })
-					print filename
-					print fileUrl
+				csvYr = title.split(' ')[-1]
+				csvMth = title.split(' ')[-2][:3]
+				csvMth = convert_mth_strings(csvMth);
+				filename = entity_id + "_" + csvYr + "_" + csvMth
+				todays_date = str(datetime.now())
+				scraperwiki.sqlite.save(unique_keys=['l'], data={"l": fileUrl, "f": filename, "d": todays_date })
+				print filename
