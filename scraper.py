@@ -47,10 +47,11 @@ for block in blocks:
 				title = title.replace("(.csv format)","") #  get rid of suffix
 				# create the right strings for the new filename
 				title = title.upper().strip()
-				csvYr = title.split(' ')[-1]
-				csvMth = title.split(' ')[-2][:3]
-				csvMth = convert_mth_strings(csvMth);
-				filename = entity_id + "_" + csvYr + "_" + csvMth
-				todays_date = str(datetime.now())
-				scraperwiki.sqlite.save(unique_keys=['l'], data={"l": fileUrl, "f": filename, "d": todays_date })
-				print filename
+				if 'GPC' not in title:
+					csvYr = title.split(' ')[-1]
+					csvMth = title.split(' ')[-2][:3]
+					csvMth = convert_mth_strings(csvMth);
+					filename = entity_id + "_" + csvYr + "_" + csvMth
+					todays_date = str(datetime.now())
+					scraperwiki.sqlite.save(unique_keys=['l'], data={"l": fileUrl, "f": filename, "d": todays_date })
+					print filename
